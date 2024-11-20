@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Index</title>
+</head>
+<body>
+
+<div th:each="order : ${orders}">
+    <a th:href="@{/orders/{id}(id=${order.getId()})}"
+       th:text="${order.getOwnerClient()}" class="m-2"></a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/orders/new" class="btn btn-primary m-2">Добавить заказ</a>
+
+</body>
+</html>

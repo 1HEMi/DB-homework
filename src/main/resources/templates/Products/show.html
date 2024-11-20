@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Show</title>
+</head>
+<body>
+<p th:text="${product.getName() + ', ' + product.getDescription()}" class="m-2"></p>
+<p th:text="${'Поставщик: ' + owner.getName()}" class="m-2"></p>
+<p th:text="${'Цена продукции: ' + product.getPrice()} + ' рублей'" class="m-2"></p>
+<p th:text="${'Id: '+ product.getId()}" class="m-2"></p>
+
+<a th:href="@{/products/{id}/edit(id=${product.getId()})}" class="btn btn-primary m-2">Изменить</a>
+
+
+<form th:method="DELETE" th:action="@{/products/{id}(id=${product.getId()})}">
+    <input type="submit" value="Удалить" class="btn btn-primary m-2"/>
+</form>
+
+</body>
+</html>
