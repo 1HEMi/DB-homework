@@ -3,6 +3,7 @@ package ru.knyazev.rgr.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.knyazev.rgr.models.Inventory;
 import ru.knyazev.rgr.models.Product;
 import ru.knyazev.rgr.models.Supplier;
 import ru.knyazev.rgr.repositories.ProductsRepository;
@@ -42,6 +43,7 @@ public class ProductsService {
 
         updatedProduct.setId(id);
         updatedProduct.setOwner(productToBeUpdated.getOwner());
+        updatedProduct.setOwnerInventory(productToBeUpdated.getOwnerInventory());
         productsRepository.save(updatedProduct);
     }
 
@@ -53,6 +55,10 @@ public class ProductsService {
 
     public Supplier getProductOwner(int id){
         return productsRepository.findById(id).map(Product::getOwner).orElse(null);
+    }
+
+    public Inventory getProductInventory(int id){
+        return productsRepository.findById(id).map(Product::getOwnerInventory).orElse(null);
     }
 
 }

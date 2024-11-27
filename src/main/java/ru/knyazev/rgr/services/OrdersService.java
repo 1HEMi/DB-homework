@@ -9,6 +9,7 @@ import ru.knyazev.rgr.models.Product;
 import ru.knyazev.rgr.models.Supplier;
 import ru.knyazev.rgr.repositories.OrdersRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +35,7 @@ public class OrdersService {
 
     @Transactional
     public void save(Order order) {
+        order.setOrderDate(new Date());
         ordersRepository.save(order);
     }
 

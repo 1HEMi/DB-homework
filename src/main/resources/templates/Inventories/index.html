@@ -8,15 +8,15 @@
 </head>
 <body>
 
-<div th:each="product : ${products}">
-    <a th:href="@{/products/{id}(id=${product.getId()})}"
-       th:text="${product.getName() + ', ' + product.getOwner()}" class="m-2"></a>
+<div th:each="inventory : ${inventories}">
+    <a th:href="@{/inventories/{id}(id=${inventory.getId()})}"
+       th:text="${inventory.getName() + ', ' + inventory.getAddress()}" class="m-2"></a>
 </div>
 
 <br/>
 <hr/>
 
-<a href="/products/new" class="btn btn-primary m-2">Добавить продукцию</a>
+<a href="/inventory/new" class="btn btn-primary m-2">Добавить склад</a>
 
 </body>
 </html>

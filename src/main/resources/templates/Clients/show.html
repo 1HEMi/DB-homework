@@ -10,17 +10,6 @@
 <p th:text="${client.getName() + ', ' + client.getAddress()}" class="m-2"></p>
 <p th:text="${'Контактная информация: ' + client.getContactInfo()}" class="m-2"></p>
 
-<b>Заказы:</b>
-<br/>
-<table th:each="order : ${orders}">
-    <tr>
-        <td>
-            <span th:text="${order.getId() + ', ' + order.getQuantity()}">
-
-            </span>
-        </td>
-    </tr>
-</table>
 <p th:text="${'Id: ' +client.getId()}" class="m-2"></p>
 
 <a th:href="@{/clients/{id}/edit(id=${client.getId()})}" class="btn btn-primary m-2">Изменить</a>

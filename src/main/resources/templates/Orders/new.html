@@ -9,17 +9,9 @@
 <body>
 
 <form th:method="POST" th:action="@{/orders}" th:object="${order}">
-    <label for="product" class="m-2">Введите товар: </label>
-    <input type="text" th:field="*{product}" id="product"/>
-    <div style="color:red" th:if="${#fields.hasErrors('product')}" th:errors="*{product}">Product Error</div>
-    <br/>
     <label for="ownerClient" class="m-2">Введите клиента: </label>
     <input type="text" th:field="*{ownerClient}" id="ownerClient"/>
     <div style="color:red" th:if="${#fields.hasErrors('ownerClient')}" th:errors="*{ownerClient}">Owner Client Error</div>
-    <br/>
-    <label for="orderDate" class="m-2">Введите дату заказа: </label>
-    <input type="text" th:field="*{orderDate}" id="orderDate"/>
-    <div style="color:red" th:if="${#fields.hasErrors('orderDate')}" th:errors="*{orderDate}">orderDate Error</div>
     <br/>
     <label for="quantity" class="m-2">Введите количество продукции: </label>
     <input type="text" th:field="*{quantity}" id="quantity"/>

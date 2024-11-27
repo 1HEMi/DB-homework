@@ -10,7 +10,8 @@
 
 <div th:each="order : ${orders}">
     <a th:href="@{/orders/{id}(id=${order.getId()})}"
-       th:text="${order.getOwnerClient()}" class="m-2"></a>
+       th:text="${order.getId() + ', '}" class="m-2"></a>></a>
+
 </div>
 
 <br/>

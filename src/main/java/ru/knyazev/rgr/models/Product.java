@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.aspectj.weaver.ast.Or;
 
 import java.security.PrivateKey;
+import java.util.List;
 
 @Entity
 @Table(name = "Product")
@@ -29,9 +30,8 @@ public class Product {
     @JoinColumn(name="supplier_id",referencedColumnName = "id")
     private Supplier owner;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
-    private Order ownerProduct;
+    @ManyToMany(mappedBy = "products")
+    private List<Order> orders;
 
     @ManyToOne
     @JoinColumn(name = "inventory_id", referencedColumnName = "id")
@@ -100,11 +100,11 @@ public class Product {
         this.ownerInventory = ownerInventory;
     }
 
-    public Order getOwnerProduct() {
-        return ownerProduct;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setOwnerProduct(Order ownerProduct) {
-        this.ownerProduct = ownerProduct;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }
