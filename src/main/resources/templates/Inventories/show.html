@@ -25,7 +25,7 @@
 
 <a th:href="@{/inventories/{id}/edit(id=${inventory.getId()})}" class="btn btn-primary m-2">Изменить</a>
 
-
+<a href="/orders/new" class="btn btn-primary m-2">Сделать заказ</a>
 <form th:method="DELETE" th:action="@{/inventories/{id}(id=${inventory.getId()})}">
     <input type="submit" value="Удалить" class="btn btn-primary m-2"/>
 </form>

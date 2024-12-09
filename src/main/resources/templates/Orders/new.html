@@ -13,6 +13,10 @@
     <input type="text" th:field="*{ownerClient}" id="ownerClient"/>
     <div style="color:red" th:if="${#fields.hasErrors('ownerClient')}" th:errors="*{ownerClient}">Owner Client Error</div>
     <br/>
+    <label for="products" class="m-2">Введите товар: </label>
+    <input type="text" th:field="*{products}" id="products"/>
+    <div style="color:red" th:if="${#fields.hasErrors('products')}" th:errors="*{products}">Products Error</div>
+    <br/>
     <label for="quantity" class="m-2">Введите количество продукции: </label>
     <input type="text" th:field="*{quantity}" id="quantity"/>
     <div style="color:red" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">QuantityAvailable Error</div>

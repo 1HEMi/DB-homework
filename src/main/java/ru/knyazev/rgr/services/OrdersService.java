@@ -41,7 +41,10 @@ public class OrdersService {
 
     @Transactional
     public void update(int id, Order updatedOrder) {
+        Order orderToBeUpdated = ordersRepository.findById(id).get();
         updatedOrder.setId(id);
+        updatedOrder.setOwnerClient(orderToBeUpdated.getOwnerClient());
+        updatedOrder.setProducts(orderToBeUpdated.getProducts());
         ordersRepository.save(updatedOrder);
     }
 

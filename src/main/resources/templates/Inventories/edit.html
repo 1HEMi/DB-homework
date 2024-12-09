@@ -17,10 +17,6 @@
     <input type="text" th:field="*{address}" id="address"/>
     <div style="color:red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</div>
     <br/>
-    <label for="quantityInStock" class="m-2">Введите количество продукции: </label>
-    <input type="text" th:field="*{quantityInStock}" id="quantityInStock"/>
-    <div style="color:red" th:if="${#fields.hasErrors('quantityInStock')}" th:errors="*{quantityInStock}">QuantityAvailable Error</div>
-    <br/>
     <input type="submit" value="Обновить" class="btn btn-primary m-2"/>
 </form>
 

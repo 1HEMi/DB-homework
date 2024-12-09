@@ -23,8 +23,8 @@ public class Inventory {
     @OneToMany(mappedBy = "ownerInventory")
     private List<Product> products;
 
-    @Column(name="quantity_in_stock")
-    private int quantityInStock;
+//    @Column(name="quantity_in_stock")
+//    private int quantityInStock;
 
     public Inventory() {
     }
@@ -66,11 +66,11 @@ public class Inventory {
         this.products = products;
     }
 
-    public int getQuantityInStock() {
-        return quantityInStock;
-    }
-
-    public void setQuantityInStock(int quantityInStock) {
-        this.quantityInStock = quantityInStock;
-    }
+//    public int getQuantityInStock() {
+//        return quantityInStock;
+//    }
+//
+//    public void setQuantityInStock(int quantityInStock) {
+//        this.quantityInStock = quantityInStock;
+//    }
 }

@@ -34,6 +34,7 @@ public class ProductsController {
         Supplier productOwner = productsService.getProductOwner(id);
         model.addAttribute("owner", productOwner);
         Inventory inventoryOwner = productsService.getProductInventory(id);
+        model.addAttribute("ownerInventory", inventoryOwner);
         return "products/show";
     }
 
