@@ -8,17 +8,21 @@
 </head>
 <body>
 
-<p th:text="${'Клиент: ' + ownerClient.getName()}" class="m-2"></p>
+
+<p th:text="${'Id: ' + order.getId()}" class="m-2"></p>
+<p th:text="${'Заказчик: ' + ownerClient.getName()}" class="m-2"></p>
+
+<b class="m-2">Заказанные товары:</b>
+<br/>
 <table th:each="product : ${products}">
     <tr>
         <td>
-            <span th:text="${product.getName() + ', ' + product.getQuantityAvailable()}">
+            <span class="m-2" th:text="${product.getName() + ', ' + order.getQuantity}">
 
             </span>
         </td>
     </tr>
 </table>
-<p th:text="${'Id: ' + order.getId()}" class="m-2"></p>
 
 <a th:href="@{/orders/{id}/edit(id=${order.getId()})}" class="btn btn-primary m-2">Изменить</a>
 

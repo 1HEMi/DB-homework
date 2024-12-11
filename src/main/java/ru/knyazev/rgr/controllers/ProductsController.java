@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import ru.knyazev.rgr.models.Inventory;
 import ru.knyazev.rgr.models.Product;
 import ru.knyazev.rgr.models.Supplier;
 import ru.knyazev.rgr.services.ProductsService;
@@ -28,10 +29,12 @@ public class ProductsController {
     }
 
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") int id, Model model, @ModelAttribute("supplier") Supplier supplier) {
+    public String show(@PathVariable("id") int id, Model model, @ModelAttribute("supplier") Supplier supplier, @ModelAttribute("inventory")Inventory inventory) {
         model.addAttribute("product", productsService.findOne(id));
         Supplier productOwner = productsService.getProductOwner(id);
         model.addAttribute("owner", productOwner);
+        Inventory inventoryOwner = productsService.getProductInventory(id);
+        model.addAttribute("ownerInventory", inventoryOwner);
         return "products/show";
     }
 

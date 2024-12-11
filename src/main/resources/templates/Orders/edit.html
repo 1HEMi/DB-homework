@@ -9,17 +9,13 @@
 <body>
 
 <form th:method="PATCH" th:action="@{/orders/{id}(id=${order.getId()})}" th:object="${order}">
-    <label for="order" class="m-2">Введите заказ: </label>
-    <input type="text" th:field="*{order}" id="order"/>
-    <div style="color:red" th:if="${#fields.hasErrors('order')}" th:errors="*{order}">Order Error</div>
-    <br/>
     <label for="ownerClient" class="m-2">Введите клиента: </label>
     <input type="text" th:field="*{ownerClient}" id="ownerClient"/>
     <div style="color:red" th:if="${#fields.hasErrors('ownerClient')}" th:errors="*{ownerClient}">Owner Client Error</div>
     <br/>
-    <label for="orderDate" class="m-2">Введите дату заказа: </label>
-    <input type="text" th:field="*{orderDate}" id="orderDate"/>
-    <div style="color:red" th:if="${#fields.hasErrors('orderDate')}" th:errors="*{orderDate}">orderDate Error</div>
+    <label for="products" class="m-2">Введите товар: </label>
+    <input type="text" th:field="*{products}" id="products"/>
+    <div style="color:red" th:if="${#fields.hasErrors('products')}" th:errors="*{products}">Products Error</div>
     <br/>
     <label for="quantity" class="m-2">Введите количество продукции: </label>
     <input type="text" th:field="*{quantity}" id="quantity"/>

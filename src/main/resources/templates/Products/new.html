@@ -29,6 +29,10 @@
     <input type="text" th:field="*{owner}" id="owner"/>
     <div style="color:red" th:if="${#fields.hasErrors('owner')}" th:errors="*{owner}">Owner Error</div>
     <br/>
+    <label for="ownerInventory" class="m-2">Введите инвентарь: </label>
+    <input type="text" th:field="*{ownerInventory}" id="ownerInventory"/>
+    <div style="color:red" th:if="${#fields.hasErrors('ownerInventory')}" th:errors="*{ownerInventory}">Owner Error</div>
+    <br/>
 
     <input type="submit" value="Создать" class="btn btn-primary m-2"/>
 </form>

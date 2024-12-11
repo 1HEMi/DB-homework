@@ -8,16 +8,15 @@
 </head>
 <body>
 
-<div th:each="order : ${orders}">
-    <a th:href="@{/orders/{id}(id=${order.getId()})}"
-       th:text="${order.getId() + ', '}" class="m-2"></a>></a>
-
+<div th:each="inventory : ${inventories}">
+    <a th:href="@{/inventories/{id}(id=${inventory.getId()})}"
+       th:text="${inventory.getName() + ', ' + inventory.getAddress()}" class="m-2"></a>
 </div>
 
 <br/>
 <hr/>
 
-<a href="/orders/new" class="btn btn-primary m-2">Добавить заказ</a>
+<a href="/inventories/new" class="btn btn-primary m-2">Добавить склад</a>
 
 </body>
 </html>

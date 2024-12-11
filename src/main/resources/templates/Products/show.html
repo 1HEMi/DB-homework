@@ -9,6 +9,7 @@
 <body>
 <p th:text="${product.getName() + ', ' + product.getDescription()}" class="m-2"></p>
 <p th:text="${'Поставщик: ' + owner.getName()}" class="m-2"></p>
+<p th:text="${'Склад: ' + ownerInventory.getName()}" class="m-2"></p>
 <p th:text="${'Цена продукции: ' + product.getPrice()} + ' рублей'" class="m-2"></p>
 <p th:text="${'Id: '+ product.getId()}" class="m-2"></p>
 

@@ -7,8 +7,7 @@
     <title>Show</title>
 </head>
 <body>
-<p th:text="${supplier.getName() + ', ' + supplier.getAddress()}" class="m-2"></p>
-<p th:text="${'Контактная информация: ' + supplier.getContactInfo()}" class="m-2"></p>
+<p th:text="${inventory.getName() + ', ' + inventory.getAddress()}" class="m-2"></p>
 
 <b class="m-2">Продукция:</b>
 <br/>
@@ -21,12 +20,14 @@
         </td>
     </tr>
 </table>
-<p th:text="${'Id: ' +supplier.getId()}" class="m-2"></p>
 
-<a th:href="@{/suppliers/{id}/edit(id=${supplier.getId()})}" class="btn btn-primary m-2">Изменить</a>
+<p th:text="${'Id: ' +inventory.getId()}" class="m-2"></p>
 
+<a th:href="@{/inventories/{id}/edit(id=${inventory.getId()})}" class="btn btn-primary m-2">Изменить</a>
 
-<form th:method="DELETE" th:action="@{/suppliers/{id}(id=${supplier.getId()})}">
+<a href="/orders/new" class="btn btn-primary m-2">Сделать заказ</a>
+<a href="/suppliers" class="btn btn-primary m-2">Поставщики</a>
+<form th:method="DELETE" th:action="@{/inventories/{id}(id=${inventory.getId()})}">
     <input type="submit" value="Удалить" class="btn btn-primary m-2"/>
 </form>
 
