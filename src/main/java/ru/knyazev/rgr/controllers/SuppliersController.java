@@ -5,16 +5,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import ru.knyazev.rgr.models.Product;
 import ru.knyazev.rgr.models.Supplier;
-import ru.knyazev.rgr.services.SuppliersService;
+import ru.knyazev.rgr.services.SuppliersJdbcService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/suppliers")
 public class SuppliersController {
-    private final SuppliersService suppliersService;
+    private final SuppliersJdbcService suppliersService;
 
     @Autowired
-    public SuppliersController(SuppliersService suppliersService) {
+    public SuppliersController(SuppliersJdbcService suppliersService) {
         this.suppliersService = suppliersService;
     }
 
@@ -22,13 +25,14 @@ public class SuppliersController {
     public String index(Model model) {
         model.addAttribute("suppliers", suppliersService.findAll());
         return "suppliers/index";
-
     }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
-        model.addAttribute("supplier", suppliersService.findOne(id));
-        model.addAttribute("products", suppliersService.getProductsBySupplierId(id));
+        Supplier supplier = suppliersService.findOne(id);
+        List<Product> products = suppliersService.getProductsBySupplierId(id);
+        model.addAttribute("supplier", supplier);
+        model.addAttribute("products", products);
         return "suppliers/show";
     }
 
@@ -49,7 +53,8 @@ public class SuppliersController {
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
-        model.addAttribute("supplier", suppliersService.findOne(id));
+        Supplier supplier = suppliersService.findOne(id);
+        model.addAttribute("supplier", supplier);
         return "suppliers/edit";
     }
 

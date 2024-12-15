@@ -29,10 +29,13 @@ public class Supplier {
     public Supplier() {
     }
 
-    public Supplier(String name, String address) {
+    public Supplier(int id, String name, String contactInfo, String address) {
+        this.id = id;
         this.name = name;
+        this.contactInfo = contactInfo;
         this.address = address;
     }
+
 
     public int getId() {
         return id;
